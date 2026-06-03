@@ -254,7 +254,7 @@ geecst = function(y,mu,sigma2,gama,n,p,alpha,K,Na,x,iter.max, alpha.fix, t,
   varnaive = ginv(Seps)%*%t(M)%*%W%*%solve(Lambda)%*%Omega%*%solve(Lambda)%*%t(W)%*%M%*%ginv(Seps)
   resq = 0
   for(i in 1:N){
-    resq[i] = qnorm(pCSN(y[i],mu[i],sigma2,gama))
+    resq[i] = qnorm(pCST(y[i],mu[i],sigma2,gama,nu))
   }
   return(list(beta = beta, theta = theta, sigma2 = sigma2, gama = gama, mu = mu,
               nu = nu, alpha = alpha, delta = delta, alphac = alphac,QAIC,
